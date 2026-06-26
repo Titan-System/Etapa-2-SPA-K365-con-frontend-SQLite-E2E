@@ -266,12 +266,6 @@ También se incluye el archivo:
 render.yaml
 ```
 
-Link al deploy:
-
-```txt
-Completar cuando Render genere la URL pública.
-```
-
 ---
 
 ## 🧩 Dificultades encontradas
@@ -301,6 +295,3 @@ Durante el desarrollo se resolvieron varios puntos importantes:
 
 ---
 
-## 👤 Autor
-
-Trabajo práctico desarrollado para la materia **PWEB2**.
