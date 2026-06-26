@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: API K365 - Etapa 2
+  version: 2.0.0
+  description: API REST para una SPA de kiosco con carrito persistido en SQLite.
+servers:
+  - url: http://127.0.0.1:5000
+paths:
+  /api/health:
+    get:
+      summary: Verifica el estado de la API
+      responses:
+        '200':
+          description: API funcionando
+  /api/products:
+    get:
+      summary: Lista productos disponibles
+      responses:
+        '200':
+          description: Lista de productos
+  /api/products/{product_id}:
+    get:
+      summary: Obtiene un producto por ID
+      parameters:
+        - in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Producto encontrado
+        '404':
+          description: Producto no encontrado
+  /api/cart:
+    get:
+      summary: Obtiene el carrito actual
+      responses:
+        '200':
+          description: Carrito actual
+    delete:
+      summary: Vacía el carrito
+      responses:
+        '200':
+          description: Carrito vacío
+  /api/cart/items:
+    post:
+      summary: Agrega un producto al carrito o incrementa su cantidad
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - product_id
+              properties:
+                product_id:
+                  type: integer
+                  example: 1
+                quantity:
+                  type: integer
+                  example: 1
+      responses:
+        '201':
+          description: Producto agregado
+        '400':
+          description: Datos inválidos
+        '404':
+          description: Producto no encontrado
+        '409':
+          description: Stock insuficiente
+  /api/cart/items/{product_id}:
+    delete:
+      summary: Elimina un producto del carrito
+      parameters:
+        - in: path
+          name: product_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Producto eliminado
+        '404':
+          description: Producto no estaba en el carrito
+  /api/cart/total:
+    get:
+      summary: Calcula el total del carrito
+      responses:
+        '200':
+          description: Total actual
+  /api/cart/checkout:
+    post:
+      summary: Finaliza la compra, registra una orden y vacía el carrito
+      responses:
+        '201':
+          description: Compra confirmada
+        '400':
+          description: Carrito vacío

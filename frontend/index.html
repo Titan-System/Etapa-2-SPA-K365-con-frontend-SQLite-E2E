@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K365 - SPA</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top-shell app-shell">
+    <div class="toolbar-card">
+    <div class="search-bar" role="search">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="search-input" type="search" placeholder="Buscar Coca, panchos, alfajores..." aria-label="Buscar productos" />
+      <button id="clear-search" class="search-clear" type="button" aria-label="Limpiar búsqueda">×</button>
+    </div>
+
+    <nav class="quick-filters" aria-label="Filtros rápidos">
+      <button class="chip-button active" data-category="Todos" type="button">Todos</button>
+      <button class="chip-button chip-offers" data-category="Ofertas" type="button">% Ofertas</button>
+      <button class="chip-button" data-category="Favoritos" type="button">❤ Favoritos</button>
+      <button class="chip-button" data-category="Bebidas" type="button">Bebidas</button>
+      <button class="chip-button" data-category="Golosinas" type="button">Golosinas</button>
+      <button class="chip-button" data-category="Snacks" type="button">Snacks</button>
+      <button class="chip-button" data-category="Comidas" type="button">Comidas</button>
+    </nav>
+
+    <section class="loyalty-banner" aria-label="Beneficios de puntos">
+      <div class="loyalty-icon" aria-hidden="true">✨</div>
+      <div class="loyalty-copy">
+        <strong>Acumulá puntos y conseguí beneficios exclusivos</strong>
+        <small>Sumá puntos con cada compra y desbloqueá ofertas especiales dentro de K365.</small>
+      </div>
+    </section>
+  </div>
+  </header>
+
+  <main class="layout app-shell">
+    <section id="productos" class="catalog-panel" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Catálogo K365</p>
+          <h2 id="catalog-title">Productos disponibles</h2>
+        </div>
+        <div class="catalog-meta">
+          <span id="catalog-count">0 productos</span>
+        </div>
+      </div>
+
+      <div id="products-grid" class="products-grid" aria-live="polite"></div>
+    </section>
+
+    <aside id="carrito" class="cart-panel" aria-label="Carrito de compras">
+      <div class="cart-header">
+        <div>
+          <p class="cart-title">Carrito</p>
+        </div>
+        <button id="close-empty-cart-button" class="close-cart-button" type="button" aria-label="Cerrar carrito">×</button>
+        <span id="cart-badge" class="cart-badge">0</span>
+      </div>
+
+      <div id="cart-items" class="cart-items"></div>
+
+      <div class="cart-summary">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <strong id="cart-total">$0</strong>
+        </div>
+        <div class="summary-line summary-points">
+          <span>Puntos ganados</span>
+          <strong id="hero-count">0 ✨</strong>
+        </div>
+        <button id="checkout-button" class="checkout-button" type="button" aria-label="Confirmar compra">
+          <img class="checkout-icon" src="/assets/confirmar-compra-bag.png" alt="" aria-hidden="true" />
+          <span class="checkout-copy">
+            <strong>CONFIRMAR COMPRA</strong>
+            <small>Completá tu pedido y seguí acumulando beneficios exclusivos.</small>
+          </span>
+        </button>
+        <button id="clear-cart-button" class="secondary-button" type="button">Vaciar carrito</button>
+      </div>
+    </aside>
+  </main>
+
+  <button id="cart-toggle-button" class="cart-toggle-button" type="button" aria-label="Abrir carrito">
+    <span aria-hidden="true">🛒</span>
+  </button>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
