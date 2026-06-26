@@ -32,7 +32,7 @@ La aplicación permite:
 
 La arquitectura implementada sigue un flujo simple: el usuario interactúa con el frontend, el frontend realiza peticiones `fetch` a la API Flask, el backend procesa la solicitud, consulta o actualiza SQLite y devuelve una respuesta JSON para actualizar la interfaz.
 
-![Arquitectura y flujo de la SPA K365](assets\arquitectura-y-flujo-spa-k365)
+![Arquitectura y flujo de la SPA K365](assets/arquitectura-y-flujo-spa-k365.png)
 
 El frontend no accede directamente a la base de datos. Toda modificación de productos, favoritos, carrito u órdenes pasa primero por el backend Flask.
 
